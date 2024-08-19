@@ -12,7 +12,7 @@ from agents.q_learning.ql import QLAgent
 
 
 def stochastic(odd, num, number_trials=200, num_episodes=500, num_iterations=100, max_steps_per_episode=100,
-               env1 = 'FrozenLakeEnv-v1', env2= 'FrozenLakeEnv-v2',
+               env1 = 'FrozenLake', env2= 'FrozenLake',
                alpha=0.5, gamma=0.99, max_er=1, min_er=0.01, exploration_decay_rate=0.001):
     
     # Bayesian agent (using thompson sampling):    

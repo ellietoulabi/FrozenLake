@@ -9,9 +9,10 @@
 
 from scipy.stats import beta
 import numpy as np
-from env import priors, update_prior_transition, update_prior_reward
+# from bayesian_learning.env import priors, update_prior_transition, update_prior_reward
 import utils as ut
 import random
+import agents.bayesian_learning.env as env
 
 
 class BRLAgent():

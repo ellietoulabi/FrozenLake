@@ -6,7 +6,11 @@ import numpy as np
 from six import StringIO,b
 
 from gym import utils
-from gym.envs.toy_text import discrete
+# from gym.envs.toy_text import discrete
+# import discrete
+import env.discrete as discrete
+
+
 
 LEFT = 0
 DOWN = 1

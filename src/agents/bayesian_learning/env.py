@@ -3,7 +3,7 @@
 """
 
 import numpy as np
-import mdp
+import agents.bayesian_learning.mdp as mdp
 
 def priors(theta_transition, theta_reward, env, discount): 
     

@@ -6,16 +6,20 @@ Stochastic environment
 """
 
 import numpy as np
-from brl import BRLAgent
-from ql import QLAgent
+# from brl import BRLAgent
+# from ql import QLAgent
+from agents.bayesian_learning.brl import BRLAgent
+from agents.q_learning.ql import QLAgent
 
 
 
 
+# def deterministic(num, number_trials=200, num_episodes=500, num_iterations=100, max_steps_per_episode=100,
+#                env1 = 'FrozenLakeEnv-v1', env2= 'FrozenLakeEnv-v2',
+#                alpha=0.5, gamma=0.99, max_er=1, min_er=0.01, exploration_decay_rate=0.001):
 def deterministic(num, number_trials=200, num_episodes=500, num_iterations=100, max_steps_per_episode=100,
-               env1 = 'FrozenLakeEnv-v1', env2= 'FrozenLakeEnv-v2',
-               alpha=0.5, gamma=0.99, max_er=1, min_er=0.01, exploration_decay_rate=0.001):
-    
+               env1 = 'FrozenLake', env2= 'FrozenLake',
+               alpha=0.5, gamma=0.99, max_er=1, min_er=0.01, exploration_decay_rate=0.001):  
     odd = []
 
     # Bayesian agent (using thompson sampling):    
