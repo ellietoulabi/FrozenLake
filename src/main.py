@@ -6,7 +6,8 @@ Stochastic environment
 """
 
 import os
-os.chdir('D:/PhD/Code/bayes')
+# os.chdir('D:/PhD/Code/bayes')
+os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/agents/bayesian_learning")
 import numpy as np
 import pandas as pd
 import stochastic as st
