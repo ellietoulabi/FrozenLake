@@ -75,7 +75,7 @@ def priors(theta_transition, theta_reward, env, discount):
         
         r[:,5] = 100*(a_r) # belief that this is the true reward location
         r[:,7] = 100*(b_r) # belief that this is the wrong reward location
-         
+        # print("#######",ass[((ass.sum(2)-1)< 1e-5)])
         mdp_env = mdp.MDP(ass,r,discount)
         return mdp_env
 

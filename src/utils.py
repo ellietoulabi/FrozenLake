@@ -72,11 +72,11 @@ def plot_subresultsci(name, qlno, ql,brl,trwp, trwop, sample=500, sto = True):
     ql_rewards_means = np.mean(ql, axis=1)
     ql_rewards_stddev = np.std(ql, axis=1)
 
-    trwp_rewards_means = np.mean(trwp, axis=1)
-    trwp_rewards_stddev = np.std(trwp, axis=1)
+    # trwp_rewards_means = np.mean(trwp, axis=1)
+    # trwp_rewards_stddev = np.std(trwp, axis=1)
 
-    trwop_rewards_means = np.mean(trwop, axis=1)
-    trwop_rewards_stddev = np.std(trwop, axis=1)
+    # trwop_rewards_means = np.mean(trwop, axis=1)
+    # trwop_rewards_stddev = np.std(trwop, axis=1)
 
     plt.rcParams.update({'font.size': 18})    
     fig,a =  plt.subplots(5,1,sharex=True, sharey=True, figsize=(15,15))   
@@ -89,15 +89,17 @@ def plot_subresultsci(name, qlno, ql,brl,trwp, trwop, sample=500, sto = True):
     a[2].plot(range(sample-1),brl_rewards_means[:-1], label='Bayesian RL', linewidth=2)
     a[2].fill_between(range(sample-1), brl_rewards_means[:-1] + brl_rewards_stddev[:-1], brl_rewards_means[:-1] - brl_rewards_stddev[:-1], alpha=0.3)
     a[2].set(title ='Bayesian RL', ylabel='Average Reward')
-    a[3].plot(range(sample-1),trwp_rewards_means[:-1], label='Active Inference', linewidth=2)
-    a[3].fill_between(range(sample-1), trwp_rewards_means[:-1] + trwp_rewards_stddev[:-1], trwp_rewards_means[:-1] - trwp_rewards_stddev[:-1], alpha=0.3)
-    a[3].set(title='Active Inference', ylabel='Average Reward')
-    a[4].plot(range(sample-1),trwop_rewards_means[:-1], label='Active Inference (null model)', linewidth=2)
-    a[4].fill_between(range(sample-1), trwop_rewards_means[:-1] + trwop_rewards_stddev[:-1], trwop_rewards_means[:-1] - trwop_rewards_stddev[:-1], alpha=0.3)
-    a[4].set(title='Active Inference (null model)', xlabel='Episodes', ylabel='Average Reward')
+    # a[3].plot(range(sample-1),trwp_rewards_means[:-1], label='Active Inference', linewidth=2)
+    # a[3].fill_between(range(sample-1), trwp_rewards_means[:-1] + trwp_rewards_stddev[:-1], trwp_rewards_means[:-1] - trwp_rewards_stddev[:-1], alpha=0.3)
+    # a[3].set(title='Active Inference', ylabel='Average Reward')
+    # a[4].plot(range(sample-1),trwop_rewards_means[:-1], label='Active Inference (null model)', linewidth=2)
+    # a[4].fill_between(range(sample-1), trwop_rewards_means[:-1] + trwop_rewards_stddev[:-1], trwop_rewards_means[:-1] - trwop_rewards_stddev[:-1], alpha=0.3)
+    # a[4].set(title='Active Inference (null model)', xlabel='Episodes', ylabel='Average Reward')
     
     if sto:
-        for i in range(5):
+        # for i in range(5):
+        for i in range(3):
+
             a[i].axvline(20, linestyle='--', color='grey')
             a[i].axvline(120, linestyle='--', color='grey')
             a[i].axvline(140, linestyle='--', color='grey')

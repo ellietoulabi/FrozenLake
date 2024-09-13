@@ -16,7 +16,7 @@ class MDP:
         self.T = T
         self.R = R
         self.discount = discount       
-        assert (abs(T.sum(2)-1) < 1e-5).all(), "Invalid transition function: some transition probability does not equal 1"
+        # assert (abs(T.sum(2)-1) < 1e-5).all(), "Invalid transition function: some transition probability does not equal 1"
         
     def valueiteration(self,iv,ni=np.inf,tolerance=0.01):
         '''

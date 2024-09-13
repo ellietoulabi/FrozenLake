@@ -4,7 +4,6 @@
 
 Stochastic environment 
 """
-
 import os
 # os.chdir('D:/PhD/Code/bayes')
 os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/agents/bayesian_learning")
@@ -19,8 +18,10 @@ simulator = True
 det = True
 sto = True
 
+
+
 num = ''
-if simulator:
+if simulator:  
     if sto:
         st.stochastic(odd, num)
     if det:
@@ -67,6 +68,7 @@ ci[4,0], ci[4,1], ci[4,2] =ut.mean_confidence_interval(trwop)
 
 
 if det:
+    pass
     ut.plot_subresultsci('deterministic_plot', QL_tr_online_no, QL_tr_online, BRL_tr_online, trwp_rewards, trwop_rewards, 500, False)
 if sto:
     ut.plot_subresultsci('stochastic_plot', QL_tr_online_no, QL_tr_online, BRL_tr_online, trwp_rewards, trwop_rewards, 500, True)

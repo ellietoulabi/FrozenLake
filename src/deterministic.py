@@ -13,12 +13,14 @@ from agents.q_learning.ql import QLAgent
 
 
 
+import os
+os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/myresults")
 
 # def deterministic(num, number_trials=200, num_episodes=500, num_iterations=100, max_steps_per_episode=100,
 #                env1 = 'FrozenLakeEnv-v1', env2= 'FrozenLakeEnv-v2',
 #                alpha=0.5, gamma=0.99, max_er=1, min_er=0.01, exploration_decay_rate=0.001):
 def deterministic(num, number_trials=200, num_episodes=500, num_iterations=100, max_steps_per_episode=100,
-               env1 = 'FrozenLake', env2= 'FrozenLake',
+               env1 = 'FrozenLakeEnv-v1', env2= 'FrozenLakeEnv-v2',
                alpha=0.5, gamma=0.99, max_er=1, min_er=0.01, exploration_decay_rate=0.001):  
     odd = []
 

@@ -6,6 +6,8 @@
             #       However, this would result in the distributions changing to normal - gamma i
 @author: Noor Sajid
 """
+import os
+# os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/agents/bayesian_learning")
 
 from scipy.stats import beta
 import numpy as np
@@ -13,6 +15,8 @@ import numpy as np
 import utils as ut
 import random
 import agents.bayesian_learning.env as env
+from agents.bayesian_learning.env import priors, update_prior_transition, update_prior_reward
+
 
 
 class BRLAgent():
