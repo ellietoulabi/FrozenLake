@@ -6,7 +6,7 @@ Stochastic environment
 """
 import os
 # os.chdir('D:/PhD/Code/bayes')
-os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/agents/bayesian_learning")
+os.chdir("/home/user/Workspace/FrozenLake/src/agents/bayesian_learning")
 import numpy as np
 import pandas as pd
 import stochastic as st
@@ -15,7 +15,7 @@ import utils as ut
 
 odd = list(range(20)) + list(range(120,140)) + list(range(250,450))
 simulator = True
-det = True
+det = False
 sto = True
 
 

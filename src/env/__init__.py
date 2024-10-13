@@ -1,7 +1,7 @@
 
 
 import os
-# os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src")
+# os.chdir("/home/user/Workspace/FrozenLake/src")
 
 # from gym.envs.toy_text.blackjack import BlackjackEnv
 # from gym.envs.toy_text.roulette import RouletteEnv

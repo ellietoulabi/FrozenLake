@@ -13,6 +13,16 @@ RIGHT = 2
 UP = 3
 
 MAPS = {
+    "3x3_v1": [
+        "SFF",
+        "FFG",
+        "FHF",
+    ],
+    "3x3_v2": [
+        "SFF",
+        "FFH",
+        "FGF"
+    ],
     "4x4": [
         "SFFF",
         "FHFH",
@@ -96,14 +106,16 @@ class FrozenLakeEnv(discrete.DiscreteEnv):
 
     metadata = {'render.modes': ['human', 'ansi']}
 
-    def __init__(self, desc=None, map_name="4x4",is_slippery=True):
+    def __init__(self, desc=None, map_name=None,is_slippery=True):
+        if map_name is None:
+            exit()
         if desc is None and map_name is None:
             desc = generate_random_map()
         elif desc is None:
             desc = MAPS[map_name]
         self.desc = desc = np.asarray(desc,dtype='c')
         self.nrow, self.ncol = nrow, ncol = desc.shape
-        self.reward_range = (0, 1)
+        self.reward_range = (0, 100)
 
         nA = 4
         nS = nrow * ncol
@@ -142,16 +154,16 @@ class FrozenLakeEnv(discrete.DiscreteEnv):
                                 newstate = to_s(newrow, newcol)
                                 newletter = desc[newrow, newcol]
                                 done = bytes(newletter) in b'GH'
-                                rew = float(newletter == b'G')
+                                rew = float(newletter == b'G')*100
                                 li.append((1.0/3.0, newstate, rew, done))
                         else:
                             newrow, newcol = inc(row, col, a)
                             newstate = to_s(newrow, newcol)
                             newletter = desc[newrow, newcol]
                             done = bytes(newletter) in b'GH'
-                            rew = float(newletter == b'G')
+                            rew = float(newletter == b'G')*100
                             li.append((1.0, newstate, rew, done))
-
+        
         super(FrozenLakeEnv, self).__init__(nS, nA, P, isd)
 
     def render(self, mode='human'):

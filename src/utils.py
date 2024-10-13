@@ -43,7 +43,7 @@ def play_episode(Q, env, max_steps_per_episode, render = False):
             
         
 def environment_update(one,two, odd, episode):   
-         
+
     # Alternating between goal locations:
     if episode in odd:
         env =  gym.make(one) # goal location 1

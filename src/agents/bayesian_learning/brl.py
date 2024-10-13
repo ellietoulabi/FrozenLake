@@ -7,7 +7,7 @@
 @author: Noor Sajid
 """
 import os
-# os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/agents/bayesian_learning")
+# os.chdir("/home/user/Workspace/FrozenLake/src/agents/bayesian_learning")
 
 from scipy.stats import beta
 import numpy as np
@@ -66,7 +66,7 @@ class BRLAgent():
                     # solve the k MDPs using value iteration.
                     Q_functions = [m.valueiteration(np.zeros(self.env.observation_space.n)) for m in MDPs]        
                     
-                    # average Q-value 
+                    # average Q-value
                     Q_hat = np.mean(Q_functions,axis=0)
                     
                     # get action to play via max(a) Q-hat(s,a):
@@ -75,6 +75,14 @@ class BRLAgent():
                     action = np.argmax(Q_hat[:,self.state])
                     # sample next state:            
                     new_state, reward, done, info = self.env.step(action) 
+                #     print({
+                #           'state': self.state,
+                #           'new_state': new_state,
+                #           'action': action,
+                #           'Q_hat': Q_hat,
+                #           'Q_functions': Q_functions,
+                #           'reward': reward,
+                #     })
                     
                     # update priors:
                     self.a_t,self.b_t = update_prior_transition(self.a_t,self.b_t,action,self.state,new_state, 1)
@@ -99,7 +107,8 @@ class BRLAgent():
                 self.env = ut.environment_update(self.env1, self.env2, self.odd, episode)    
                 self.env.seed(episode)
                 
-                Q, self.belief_states, reward,i = self.planner()                     
+                Q, self.belief_states, reward,i = self.planner()            
+      
               
                 # Updating priors:    
                 self.a_t = self.belief_states[-1][0]

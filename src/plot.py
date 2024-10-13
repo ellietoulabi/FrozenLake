@@ -6,7 +6,7 @@ Stochastic environment
 """
 import os
 # os.chdir('D:/PhD/Code/bayes')
-os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/myresults")
+os.chdir("/home/user/Workspace/FrozenLake/src/myresults")
 import numpy as np
 import pandas as pd
 import stochastic as st
@@ -15,17 +15,17 @@ import utils as ut
 
 odd = list(range(20)) + list(range(120,140)) + list(range(250,450))
 simulator = True
-det = True
-sto = False
+det = False
+sto = True
 
 
 
 
 if sto:
     name = 'stochastic'
-    # os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/results/stochastic")
-    # os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/agents/bayesian_learning")
-    os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/myresults")
+    # os.chdir("/home/user/Workspace/FrozenLake/src/results/stochastic")
+    # os.chdir("/home/user/Workspace/FrozenLake/src/agents/bayesian_learning")
+    os.chdir("/home/user/Workspace/FrozenLake/src/myresults")
 
     br = 'brl_tr_online.npy'
     ql = 'ql_tr_online.npy'
@@ -34,15 +34,15 @@ if sto:
     ai_no = 'trwop.csv'
 if det:
     name = 'deterministic'
-    # os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/results/deterministic")
-    # os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/agents/bayesian_learning")
-    os.chdir("/Users/el/Documents/UAlberta/Thesis/NonstationaryAIF/FrozenLake/src/myresults")
+    # os.chdir("/home/user/Workspace/FrozenLake/src/results/deterministic")
+    # os.chdir("/home/user/Workspace/FrozenLake/src/agents/bayesian_learning")
+    os.chdir("/home/user/Workspace/FrozenLake/src/myresults")
 
     br = 'brl_tr_det_online.npy'
     ql = 'ql_tr_det_online.npy'
     ql_no = 'ql_tr_det_online_no.npy'
-    ai = 'trwp_det.csv'
-    ai_no = 'trwop_det.csv'
+    ai = 'trwp_det_modified.csv'
+    ai_no = 'trwop_det_modfiied.csv'
     
     
 
@@ -71,6 +71,7 @@ ci[2,0], ci[2,1], ci[2,2] =ut.mean_confidence_interval(qlno)
 if det:
     # ut.plot_subresultsci('deterministic_plot', QL_tr_online_no, QL_tr_online, BRL_tr_online, trwp_rewards, trwop_rewards, 500, False)
     ut.plot_subresultsci('deterministic_plot', QL_tr_online_no, QL_tr_online, BRL_tr_online,  500, False)
+    # ut.plot_subresultsci('deterministic_plot_avg', QL_tr_online_no, QL_tr_online, brl,  500, False)
 
 if sto:
     # ut.plot_subresultsci('stochastic_plot', QL_tr_online_no, QL_tr_online, BRL_tr_online, trwp_rewards, trwop_rewards, 500, True)

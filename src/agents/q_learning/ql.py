@@ -57,7 +57,10 @@ class QLAgent():
 
      def simulator(self):
                 
-       
+        file = open("example.csv", "w")
+        file2 = open("epijan.csv", "w")
+        # file.write(self.epsilon)
+        file.write("state,new_state,action,reward\n")
         # Acting based on Q-Learning
         env_shadow = ut.environment_update(self.env1, self.env2, [1], 1) 
         Q = np.zeros((env_shadow.action_space.n, env_shadow.observation_space.n))
@@ -81,6 +84,14 @@ class QLAgent():
                   
                   #self.env.render()
                   new_state, reward, done, info = self.env.step(action) #act
+                  file.write(f"{state},{new_state},{action},{reward}\n")
+                #   print({
+                #        'state': state,
+                #        'new_state': new_state,
+                #        'action': action,
+                #        'reward': reward,
+                #   })
+                #   print('\n')
                   
                   Q[action,state] = (1-self.alpha)*Q[action,state] + self.alpha * (reward + self.gamma * np.max(Q[:, new_state])) # update Q value
                          
@@ -89,14 +100,16 @@ class QLAgent():
                   if done: 
                       break
                   
-            self.epsilon = self.miner + (self.maxer - self.miner) * np.exp(-self.exploration_decay_rate*episode)                   
+            # self.epsilon = self.miner + (self.maxer - self.miner) * np.exp(-self.exploration_decay_rate*episode)                   
+            file2.write(f"{self.epsilon}\n")
             self.tr_online[episode], self.ts_online[episode]  = reward, step+1
                   
                     
             # Updating the exploration rate: 
               
             self.tr[episode], self.ts[episode] = ut.play_episode(Q, self.env, self.max_steps_per_episode, render = False)
-            
+        file.close()    
+        file2.close()
         return self.tr, self.ts, Q, self.tr_online, self.ts_online
    
         

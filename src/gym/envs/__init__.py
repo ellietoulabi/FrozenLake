@@ -7,7 +7,7 @@ from gym.envs.registration import registry, register, make, spec
 register(
     id='FrozenLakeEnv-v1',
     entry_point='gym.envs.toy_text:FrozenLakeEnv',  # Assuming the FrozenLakeEnv exists here
-    # kwargs={'is_slippery': True},  # You can pass additional parameters if needed
+    kwargs={'map_name':"3x3_v1", 'is_slippery': False},  # You can pass additional parameters if needed
     max_episode_steps=100,
 )
 
@@ -15,9 +15,21 @@ register(
 register(
     id='FrozenLakeEnv-v2',
     entry_point='gym.envs.toy_text:FrozenLakeEnv',  # Assuming the FrozenLakeEnv exists here
-    # kwargs={'is_slippery': True},  # You can pass additional parameters if needed
+    kwargs={'map_name':"3x3_v2", 'is_slippery': False},  # You can pass additional parameters if needed
     max_episode_steps=100,
 )
+# register(
+#     id='FrozenLakeEnv-v1',
+#     entry_point='env:FrozenLakeEnvC',  # Assuming the FrozenLakeEnv exists here
+#     kwargs={'map_name':"one"},  # You can pass additional parameters if needed
+#     max_episode_steps=100,
+# )
+# register(
+#     id='FrozenLakeEnv-v2',
+#     entry_point='env:FrozenLakeEnvC',  # Assuming the FrozenLakeEnv exists here
+#     kwargs={'map_name':"two"},  # You can pass additional parameters if needed
+#     max_episode_steps=100,
+# )
 
 
 
